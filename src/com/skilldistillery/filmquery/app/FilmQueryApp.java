@@ -1,5 +1,6 @@
 package com.skilldistillery.filmquery.app;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.skilldistillery.filmquery.database.DatabaseAccessor;
@@ -20,6 +21,8 @@ public class FilmQueryApp {
   private void test() {
     Film film = db.findFilmById(1); 
     System.out.println(film);
+//    List<Actor> actors = db.findActorsByFilmId(3);
+//    System.out.println(actors);
    
   }
 

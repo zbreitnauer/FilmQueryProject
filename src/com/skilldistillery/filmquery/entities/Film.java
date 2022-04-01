@@ -22,7 +22,7 @@ public class Film {
 	}
 
 	public Film(int id, String title, String description, int year, int language_id, int rental_duration, double rental_rate,
-			int length, double replacement_cost, String rating, String special_features){
+			int length, double replacement_cost, String rating, String special_features, List<Actor> actors){
 			
 			this.id = id;
 			this.title = title;
@@ -35,6 +35,7 @@ public class Film {
 			this.replacement_cost = replacement_cost;
 			this.rating = rating;
 			this.special_features = special_features;
+			this.actors = actors;
 			
 			}
 	
@@ -139,7 +140,7 @@ public class Film {
 		return "Film Id: " + id +"\n"+ "Title: " + title +"\n"+ "Description: " + description +"\n"+ "Year: " + year +"\n"+ "Language Id: "
 				+ language_id+"\n" + "Rental duration: " + rental_duration+"\n" + "Rental rate: " + rental_rate+"\n" + "Length: "
 				+ length +"\n"+ "Replacement cost: " + replacement_cost +"\n"+ "Rating: " + rating +"\n"+ "Special features: "
-				+ special_features;
+				+ special_features+"\n" + "Actor: " + actors ;
 	}
 	
 	@Override
