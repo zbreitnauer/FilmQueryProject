@@ -21,7 +21,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	  Film film = null;
 	  try {
 		 Connection conn = DriverManager.getConnection(URL, user, pass);
-		  String sqltxt = "SELECT * FROM film WHERE id = ?";
+		  String sqltxt = "SELECT * FROM film JOIN language ON film.language_id = language.id WHERE film.id = ?";
 		PreparedStatement stmt = conn.prepareStatement(sqltxt);
 		stmt.setInt(1, filmId);
 		 ResultSet rs = stmt.executeQuery();
@@ -32,6 +32,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setDescription(rs.getString("film.description"));
 				film.setYear(rs.getInt("film.release_year"));
 				film.setLanguage_id(rs.getInt("film.language_id"));
+				film.setLanguage(rs.getString("language.name"));
 				film.setRental_duration(rs.getInt("film.rental_duration"));
 				film.setLength(rs.getInt("film.length"));
 				film.setRental_rate(rs.getDouble("film.rental_rate"));
@@ -39,7 +40,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setRating(rs.getString("film.rating"));
 				film.setSpecial_features(rs.getString("film.special_features"));
 				film.setActors(findActorsByFilmId(filmId));
-				
 		  }
 		  rs.close();
 		  stmt.close();
@@ -107,7 +107,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	  Film film =null;
 	  try {
 			 Connection conn = DriverManager.getConnection(URL, user, pass);
-			String sqltxt = "SELECT * FROM film WHERE title LIKE ? OR description LIKE ?";
+			String sqltxt = "SELECT * FROM film JOIN language ON film.language_id = language.id WHERE title LIKE ? OR description LIKE ?";
 			PreparedStatement stmt = conn.prepareStatement(sqltxt);
 			stmt.setString(1, "%" + keyword + "%");
 			stmt.setString(2, "%" + keyword + "%");
@@ -119,6 +119,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					film.setDescription(rs.getString("film.description"));
 					film.setYear(rs.getInt("film.release_year"));
 					film.setLanguage_id(rs.getInt("film.language_id"));
+					film.setLanguage(rs.getString("language.name"));
 					film.setRental_duration(rs.getInt("film.rental_duration"));
 					film.setLength(rs.getInt("film.length"));
 					film.setRental_rate(rs.getDouble("film.rental_rate"));

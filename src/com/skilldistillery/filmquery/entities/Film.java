@@ -5,11 +5,14 @@ import java.util.Objects;
 
 public class Film {
 
+
+
 	private int id;
 	private String title;
 	private String description;
 	private int year;
 	private int language_id;
+	private String language;
 	private int rental_duration;
 	private double rental_rate;
 	private int length;
@@ -21,7 +24,7 @@ public class Film {
 	public Film() {
 	}
 
-	public Film(int id, String title, String description, int year, int language_id,int rental_duration, double rental_rate,
+	public Film(int id, String title, String description, int year, int language_id,String language,int rental_duration, double rental_rate,
 			int length, double replacement_cost, String rating, String special_features, List<Actor> actors){
 			
 			this.id = id;
@@ -29,6 +32,7 @@ public class Film {
 			this.description = description;
 			this.year = year;
 			this.language_id = language_id;
+			this.language = language;
 			this.rental_duration = rental_duration;
 			this.rental_rate = rental_rate;
 			this.length = length;
@@ -77,6 +81,14 @@ public class Film {
 	
 	public void setLanguage_id(int language_id) {
 		this.language_id = language_id;
+	}
+	
+	public String getLanguage() {
+		return language;
+	}
+	
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 	
 	public int getRental_duration() {
@@ -138,7 +150,7 @@ public class Film {
 	@Override
 	public String toString() {
 		return "Film Id: " + id +"\n"+ "Title: " + title +"\n"+ "Description: " + description +"\n"+ "Year: " + year +"\n"+ "Language Id: "
-				+ language_id+"\n"+ "Rental duration: " + rental_duration+"\n" + "Rental rate: " + rental_rate+"\n" + "Length: "
+				+ language_id+"\n"+"Language: "+ language+ "\n"+ "Rental duration: " + rental_duration+"\n" + "Rental rate: " + rental_rate+"\n" + "Length: "
 				+ length +"\n"+ "Replacement cost: " + replacement_cost +"\n"+ "Rating: " + rating +"\n"+ "Special features: "
 				+ special_features+"\n" + "Actor: " + actors ;
 	}
