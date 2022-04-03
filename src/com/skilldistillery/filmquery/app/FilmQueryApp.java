@@ -49,6 +49,13 @@ public class FilmQueryApp {
 	  		System.out.println(film);
 	  		}
 	  		break;
+	  		
+	  case 3: System.out.println("Goodbye");
+	  		break;
+	  		
+	  default: System.out.println("Invalid input");
+	  			
+	  		break;
 	  
 	  }
 	  
