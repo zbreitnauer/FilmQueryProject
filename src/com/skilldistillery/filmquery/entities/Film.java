@@ -143,6 +143,7 @@ public class Film {
 				+ special_features+"\n" + "Actor: " + actors ;
 	}
 	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(description, id, language_id, length, rating, rental_duration, rental_rate,
