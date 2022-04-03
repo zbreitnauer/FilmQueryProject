@@ -43,7 +43,11 @@ public class FilmQueryApp {
 	  case 1: System.out.println("Please enter film id.");
 	  		int filmid = input.nextInt();
 	  		Film film = db.findFilmById(filmid);
+	  		if(db.findFilmById(filmid) == null){
+	  		System.out.println("No film was found.");	
+	  		}else {
 	  		System.out.println(film);
+	  		}
 	  		break;
 	  
 	  }
@@ -57,4 +61,7 @@ public class FilmQueryApp {
 	  System.out.println("3.Quit");
 	  System.out.println("-------------------");
   }
+  
+  
 }
+
