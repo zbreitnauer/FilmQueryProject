@@ -21,7 +21,7 @@ public class Film {
 	public Film() {
 	}
 
-	public Film(int id, String title, String description, int year, int language_id, int rental_duration, double rental_rate,
+	public Film(int id, String title, String description, int year, int language_id,int rental_duration, double rental_rate,
 			int length, double replacement_cost, String rating, String special_features, List<Actor> actors){
 			
 			this.id = id;
@@ -138,7 +138,7 @@ public class Film {
 	@Override
 	public String toString() {
 		return "Film Id: " + id +"\n"+ "Title: " + title +"\n"+ "Description: " + description +"\n"+ "Year: " + year +"\n"+ "Language Id: "
-				+ language_id+"\n" + "Rental duration: " + rental_duration+"\n" + "Rental rate: " + rental_rate+"\n" + "Length: "
+				+ language_id+"\n"+ "Rental duration: " + rental_duration+"\n" + "Rental rate: " + rental_rate+"\n" + "Length: "
 				+ length +"\n"+ "Replacement cost: " + replacement_cost +"\n"+ "Rating: " + rating +"\n"+ "Special features: "
 				+ special_features+"\n" + "Actor: " + actors ;
 	}

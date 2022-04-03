@@ -102,6 +102,47 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
     return actors;
   } 
   
+  public List<Film> findFilmByKeyword(String keyword){
+	  List<Film> films = new ArrayList<>();
+	  Film film =null;
+	  try {
+			 Connection conn = DriverManager.getConnection(URL, user, pass);
+			String sqltxt = "SELECT * FROM film WHERE title LIKE ? OR description LIKE ?";
+			PreparedStatement stmt = conn.prepareStatement(sqltxt);
+			stmt.setString(1, "%" + keyword + "%");
+			stmt.setString(2, "%" + keyword + "%");
+			 ResultSet rs = stmt.executeQuery();
+			  while (rs.next()) {
+				  film = new Film();
+				  	film.setId(rs.getInt("film.id"));
+					film.setTitle(rs.getString("film.title"));
+					film.setDescription(rs.getString("film.description"));
+					film.setYear(rs.getInt("film.release_year"));
+					film.setLanguage_id(rs.getInt("film.language_id"));
+					film.setRental_duration(rs.getInt("film.rental_duration"));
+					film.setLength(rs.getInt("film.length"));
+					film.setRental_rate(rs.getDouble("film.rental_rate"));
+					film.setReplacement_cost(rs.getDouble("film.replacement_cost"));
+					film.setRating(rs.getString("film.rating"));
+					film.setSpecial_features(rs.getString("film.special_features"));
+					film.setActors(findActorsByFilmId(film.getId()));
+					films.add(film);
+			  }
+			  rs.close();
+			  stmt.close();
+			  conn.close();
+			}
+			catch (SQLException e) {
+			  e.printStackTrace();
+		
+	  
+	  
+			}  
+	return films;
+	  
+  }
+  
+  
   static {
 	  try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -112,4 +153,4 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		throw new RuntimeException("Unable to load MySQL driver class");
 	}
   }
-}
+  }

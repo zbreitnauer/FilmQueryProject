@@ -49,6 +49,18 @@ public class FilmQueryApp {
 	  		System.out.println(film);
 	  		}
 	  		break;
+	  
+	  case 2:System.out.println("Enter keyword");
+	   		String keyword = input.next();
+	   		if(db.findFilmByKeyword(keyword).size() == 0){
+		  		System.out.println("No film was found.");	
+		  		}else {
+		  			for (Film movie : db.findFilmByKeyword(keyword)) {
+						
+						System.out.println(movie);
+		  		}
+		  		}
+		  		break;
 	  		
 	  case 3: System.out.println("Goodbye");
 	  		break;
