@@ -21,6 +21,9 @@ Actor:
 First Name:
 Last Name:
 
+# Lessons learned
+* Lessons learned on this one was introduction to MYSQL and Servers MAMP. Lerarning more about using the terminal and all the syntax in MYSQL. Another thing being able to take the data from the servers and being able to link it to a Eclipse java class. 
+
 # Technologies
 * MYSQL
 * Eclipse
